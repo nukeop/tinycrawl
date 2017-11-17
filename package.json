@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-      "start": "node index.js",
-      "watch": "webpack -d --watch --progress --colors",
-      "test": "mocha test.js"
+    "start": "node index.js",
+    "watch": "webpack -d --watch --progress --colors --env=dev",
+    "build": "webpack -p --progress --colors --env=prod",
+    "test": "mocha test.js"
   },
   "repository": {
     "type": "git",
@@ -21,12 +22,12 @@
   "dependencies": {
     "express": "^4.16.2",
     "http-server": "^0.10.0",
-    "phaser-ce": "^2.9.2",
-    "webpack": "^3.8.1"
+    "phaser-ce": "^2.9.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.1"
+    "babel-preset-env": "^1.6.1",
+    "webpack": "^3.8.1"
   }
 }
