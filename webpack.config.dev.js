@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 
-const BUILD_DIR = path.resolve(__dirname, 'dist');
+const BUILD_DIR = path.resolve(__dirname, 'game');
 const APP_DIR = path.resolve(__dirname, 'game');
 const RESOURCES_DIR = path.resolve(__dirname, 'resources');
 
