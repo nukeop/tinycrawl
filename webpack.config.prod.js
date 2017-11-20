@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 
-const BUILD_DIR = path.resolve(__dirname, 'game');
+const BUILD_DIR = path.resolve(__dirname, 'dist');
 const APP_DIR = path.resolve(__dirname, 'game');
 const RESOURCES_DIR = path.resolve(__dirname, 'resources');
 
@@ -17,7 +17,10 @@ module.exports = {
       {
 	test: /\.jsx?/,
 	loader: 'babel-loader',
-	include: APP_DIR
+	include: APP_DIR,
+	options: {
+	  presets: ['env']
+	}
       },
       {
         test: /\.(png|jpg|gif)$/,
