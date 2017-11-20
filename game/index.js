@@ -7,15 +7,21 @@ import LoadState from './load';
 import PlayState from './play';
 
 class Game extends Phaser.Game {
-		constructor() {
-				super(640, 480, Phaser.AUTO, 'game');
+	constructor() {
+		super({
+			width: 320,
+			height: 240,
+			renderer: Phaser.AUTO,
+			parent: 'game',
+			resolution: 0.25
+		});
 
-				this.state.add('Boot', BootState, false);
-				this.state.add('Load', LoadState, false);
-				this.state.add('Play', PlayState, false);
+		this.state.add('Boot', BootState, false);
+		this.state.add('Load', LoadState, false);
+		this.state.add('Play', PlayState, false);
 
-				this.state.start('Boot');
-		}
+		this.state.start('Boot');
+	}
 }
 
 new Game();

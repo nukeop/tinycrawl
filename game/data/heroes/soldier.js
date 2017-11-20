@@ -5,6 +5,11 @@ export default {
   },
   spritesheet: "tiles",
   animations: [
-    27, 28, 29
+		{
+			name: 'default',
+			frames: [ 28, 29 ],
+			fps: 10,
+			loop: true
+		}
   ]
 };
