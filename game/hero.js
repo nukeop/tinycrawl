@@ -1,15 +1,15 @@
 class Hero {
-  constructor(state, data, position) {
+  constructor(state, data) {
     this.state = state;
     this.name = data.name;
     this.stats = data.stats;
     this.spritesheet = data.spritesheet;
     
-    this.portrait = this.state.add.sprite(0, 0, this.spritesheet, data.portrait);
+    this.portrait = this.state.add.sprite(state.game.width, state.game.height, this.spritesheet, data.portrait);
     this.portrait.smoothed = false;
     this.portrait.scale.x = this.portrait.scale.y = 2;
     
-    this.sprite = this.state.add.sprite(position.x, position.y, this.spritesheet);
+    this.sprite = this.state.add.sprite(state.game.width, state.game.height, this.spritesheet);
     this.sprite.smoothed = false;
     this.sprite.scale.x = this.sprite.scale.y = 2;
     
@@ -19,11 +19,4 @@ class Hero {
   }
 }
 
-const createFromJson = (position, data, state) => {
-  return new Hero(state, data, position);
-};
-
-module.exports = {
-  createFromJson,
-  Hero
-}
+export default Hero;

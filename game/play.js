@@ -1,4 +1,4 @@
-import { Hero, createFromJson } from './hero';
+import Hero from './hero';
 
 import Soldier from './data/heroes/soldier';
 
@@ -8,8 +8,10 @@ class PlayState extends Phaser.State {
   }
 
   create() {
-    var soldier = createFromJson({x: 100, y: 60}, Soldier, this);
+    var soldier = new Hero(this, Soldier);
     soldier.sprite.animations.play('default');
+    soldier.sprite.position.x = 15;
+    soldier.sprite.position.y = 30;
   }
 }
 
