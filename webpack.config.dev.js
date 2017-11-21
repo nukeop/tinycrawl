@@ -20,7 +20,7 @@ module.exports = {
 	include: APP_DIR
       },
       {
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(png|jpg|gif|json)$/,
         loader: 'file-loader',
         include: RESOURCES_DIR
       },
