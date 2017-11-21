@@ -21,6 +21,7 @@
   "homepage": "https://github.com/nukeop/tinycrawl#readme",
   "dependencies": {
     "express": "^4.16.2",
+    "lodash": "^4.17.4",
     "phaser-ce": "^2.9.2"
   },
   "devDependencies": {

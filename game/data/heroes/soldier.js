@@ -1,11 +1,11 @@
 export default {
-  name: "soldier",
+  name: 'soldier',
   stats: {
     hp: 3,
     attack: 2,
     defense: 1
   },
-  spritesheet: "tiles",
+  spritesheet: 'tiles',
   portrait: 174,
   animations: [
     {

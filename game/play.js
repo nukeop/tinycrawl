@@ -1,6 +1,8 @@
+import Area from './area';
 import Hero from './hero';
 
 import Soldier from './data/heroes/soldier';
+import Grasslands from './data/areas/grasslands';
 
 class PlayState extends Phaser.State {
   init() {
@@ -12,6 +14,11 @@ class PlayState extends Phaser.State {
     soldier.sprite.animations.play('default');
     soldier.sprite.position.x = 15;
     soldier.sprite.position.y = 30;
+
+    var grasslands = new Area(this, Grasslands);
+
+    grasslands.tiles.flat.position.x = 15;
+    grasslands.tiles.flat.position.y = 72;
   }
 }
 
