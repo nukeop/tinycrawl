@@ -17,8 +17,8 @@ class PlayState extends Phaser.State {
 
     var grasslands = new Area(this, Grasslands);
 
-    grasslands.tiles.flat.position.x = 15;
-    grasslands.tiles.flat.position.y = 72;
+    grasslands.tiles.bg.position.x = 15;
+    grasslands.tiles.bg.position.y = 72;
   }
 }
 
