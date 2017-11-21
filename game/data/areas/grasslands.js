@@ -6,6 +6,7 @@ export default {
 		left: 122,
 		middle: 123,
 		right: 124,
-		bg: 152
+		bg: 152,
+		nograss: 154
 	}
 };
