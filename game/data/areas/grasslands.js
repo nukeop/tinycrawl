@@ -3,10 +3,10 @@ export default {
   spritesheet: 'tiles',
   tiles: {
     flat: 121,
-		left: 122,
-		middle: 123,
-		right: 124,
-		bg: 152,
-		nograss: 154
-	}
+    left: 122,
+    middle: 123,
+    right: 124,
+    bg: 152,
+    nograss: 154
+  }
 };
