@@ -39,6 +39,10 @@ class  Dungeon {
     this.layer.setScale(2, 2);
     this.layer.sendToBack();
   }
+
+  update() {
+    this.layer.x -= 5;
+  }
 }
 
 export default Dungeon;

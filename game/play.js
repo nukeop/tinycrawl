@@ -12,15 +12,20 @@ class PlayState extends Phaser.State {
   }
 
   create() {
-    var soldier = new Hero(this, Soldier);
-    soldier.sprite.animations.play('default');
-    soldier.sprite.position.x = 15;
-    soldier.sprite.position.y = 42;
+    this.soldier = new Hero(this, Soldier);
+    this.soldier.sprite.animations.play('default');
+    this.soldier.sprite.position.x = 15;
+    this.soldier.sprite.position.y = 42;
 
-    var areas = {grasslands: new Area(this, Grasslands)};
-    var dungeon = new Dungeon(this, areas, Plains);
+    this.areas = {grasslands: new Area(this, Grasslands)};
+    this.dungeon = new Dungeon(this, this.areas, Plains);
     
     
+  }
+
+  update() {
+    super.update();
+    this.dungeon.update();
   }
 }
 
