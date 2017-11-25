@@ -1,6 +1,7 @@
 import Area from './area';
-import Dungeon from './Dungeon';
+import Dungeon from './dungeon';
 import Hero from './hero';
+import UI from './ui';
 
 import Soldier from './data/heroes/soldier';
 import Grasslands from './data/areas/grasslands';
@@ -12,6 +13,8 @@ class PlayState extends Phaser.State {
   }
 
   create() {
+    this.gui = new UI(this.game, 'ui', {x: 0, y: 125, width: 320, height: 60, tile: 16});
+    
     this.soldier = new Hero(this, Soldier);
     this.soldier.sprite.animations.play('default');
     this.soldier.sprite.position.x = 15;
@@ -26,6 +29,7 @@ class PlayState extends Phaser.State {
   update() {
     super.update();
     this.dungeon.update();
+    this.game.camera.x += 1;
   }
 }
 

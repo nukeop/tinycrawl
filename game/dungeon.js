@@ -2,7 +2,7 @@ class  Dungeon {
   constructor(state, areas, data) {
     this.state = state;
     this.name = data.name;
-    this.areaType = areas[data.areaType]
+    this.areaType = areas[data.areaType];
     this.tilemap = null;
     this.createDungeonLayout();
   }
@@ -41,7 +41,7 @@ class  Dungeon {
   }
 
   update() {
-    this.layer.x -= 5;
+    
   }
 }
 
