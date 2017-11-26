@@ -1,15 +1,34 @@
+import _ from 'lodash';
+import assets from './data/assets';
+
 class LoadState extends Phaser.State {
   init() {
     console.log('Load state started');
   }
 
   preload() {
-    this.load.spritesheet('tiles', './resources/spritesheet.png', 21, 21, -1, 2, 2);
-    this.load.spritesheet('ui', './resources/ui.png', 16, 16, -1, 0, 2);
+    _.forEach(assets, asset => {
+      switch(asset.type) {
+      case 'spritesheet':
+	this.loadSpritesheet(asset);
+	break;
+      case 'font':
+	this.loadFont(asset);
+	break;
+      }
+    });
   }
 
   create() {
     this.state.start('Play');
+  }
+
+  loadSpritesheet(asset) {
+    this.load.spritesheet(asset.key, asset.path, asset.frameWidth, asset.frameHeight, asset.frameMax, asset.margin, asset.spacing);
+  }
+
+  loadFont(asset) {
+    this.load.bitmapFont(asset.key, asset.textureURL, asset.atlasURL);
   }
 }
 

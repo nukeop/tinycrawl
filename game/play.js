@@ -29,7 +29,10 @@ class PlayState extends Phaser.State {
   update() {
     super.update();
     this.dungeon.update();
-    this.game.camera.x += 1;
+    let text = this.game.add.bitmapText(20, 150, 'pixel-fg', 'The Land and/or Lands of Jo\'eb', 32);
+    text.maxWidth = 290;
+    text = this.game.add.bitmapText(20, 210, 'pixel-red', '[Press start]', 32);
+    text.maxWidth = 290;
   }
 }
 
