@@ -7,6 +7,8 @@ import Soldier from './data/heroes/soldier';
 import Grasslands from './data/areas/grasslands';
 import Plains from './data/dungeons/plains';
 
+import { centerBitmapText } from './textutils';
+
 class PlayState extends Phaser.State {
   init() {
     console.log('Play state started');
@@ -29,10 +31,9 @@ class PlayState extends Phaser.State {
   update() {
     super.update();
     this.dungeon.update();
-    let text = this.game.add.bitmapText(20, 150, 'pixel-fg', 'The Land and/or Lands of Jo\'eb', 32);
-    text.maxWidth = 290;
-    text = this.game.add.bitmapText(20, 210, 'pixel-red', '[Press start]', 32);
-    text.maxWidth = 290;
+
+    centerBitmapText(this.game, 140, 'pixel-fg', 'The Land and/or Lands of Jo\'eb', 32);
+    centerBitmapText(this.game, 200, 'pixel-red', '[Press start]', 32);
   }
 }
 

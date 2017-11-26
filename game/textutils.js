@@ -1,5 +1,10 @@
-const centerBitmapText = (row, font, text, size) => {
-  
+const centerBitmapText = (game, row, font, text, size) => {
+  var text = game.add.bitmapText(0, row, font, text, size);
+  text.maxWidth = 290;
+  text.align = "center";
+  text.updateText();
+  text.x = game.canvas.width/2 - text.textWidth/2;
+  return text;
 };
 
 module.exports = {
