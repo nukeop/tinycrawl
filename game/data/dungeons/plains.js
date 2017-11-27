@@ -1,5 +1,5 @@
 export default {
   name: 'plains',
   areaType: 'grasslands',
-  background: 'sky'
+  background: 'bg/sky'
 }

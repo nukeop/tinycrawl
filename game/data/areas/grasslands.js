@@ -7,6 +7,7 @@ export default {
     middle: 123,
     right: 124,
     bg: 152,
-    nograss: 154
+    nograss: 154,
+    transparent: 360
   }
 };

@@ -4,39 +4,40 @@ class  Dungeon {
     this.name = data.name;
     this.areaType = areas[data.areaType];
     this.tilemap = null;
+    this.backgroundImage = data.background;
+    this.background = this.state.game.add.tileSprite(0, 0, 320, 240, this.backgroundImage);
+    this.background.scale.x = this.background.scale.y = 2;
     this.createDungeonLayout();
+    this.background.sendToBack();
   }
 
-  createDungeonLayout() {
-    var data = [];    
-    var csv = '';
-    
-    for (var y=0; y < 3; y++) {
-      data.push([]);
-      for (var x=0; x < 32; x++) {
-	
-	switch (y) {
-	case 0:
-	case 1:
-	  break;
-	case 2:
-	  csv += this.areaType.tiles.middle;
-	  break;
-	}
+  addRow(csv, tile) {
+    for (var x=0; x < 32; x++) {
 
-	if (x < 31) {
-	  csv += ',';
-	}
+      csv += tile;
+
+      if (x < 31) {
+	csv += ',';
       }
-
-      csv += '\n';
     }
+
+    csv += '\n';
+    return csv;
+  }
+
+  createDungeonLayout() {   
+    var csv = '';
+    csv = this.addRow(csv, this.areaType.tiles.transparent);
+    csv = this.addRow(csv, this.areaType.tiles.transparent);
+    csv = this.addRow(csv, this.areaType.tiles.middle);
+    
     this.state.game.cache.addTilemap(this.name, null, csv, Phaser.Tilemap.CSV);
     this.map = this.state.game.add.tilemap(this.name, 21, 21);
     this.map.addTilesetImage(this.name, this.areaType.spritesheet, 21, 21, 2, 2);
     this.layer = this.map.createLayer(0);
     this.layer.setScale(2, 2);
     this.layer.sendToBack();
+    this.map.y = 20;
   }
 
   update() {
