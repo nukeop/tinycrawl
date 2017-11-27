@@ -18,7 +18,6 @@ class  Dungeon {
 	switch (y) {
 	case 0:
 	case 1:
-	  csv += this.areaType.tiles.bg;
 	  break;
 	case 2:
 	  csv += this.areaType.tiles.middle;

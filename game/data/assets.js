@@ -30,5 +30,20 @@ export default [
     key: 'pixel-red',
     textureURL: './resources/Fonts/font-red.png',
     atlasURL: './resources/Fonts/font-red.fnt'
+  },
+  {
+    type: 'image',
+    key: 'bg/sky',
+    url: './resources/backgrounds/sky.png'
+  },
+  {
+    type: 'image',
+    key: 'bg/forest',
+    url: './resources/backgrounds/forest.png'
+  },
+  {
+    type: 'image',
+    key: 'bg/wall',
+    url: './resources/backgrounds/wall.png'
   }
 ];

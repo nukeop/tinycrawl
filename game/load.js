@@ -15,6 +15,8 @@ class LoadState extends Phaser.State {
       case 'font':
 	this.loadFont(asset);
 	break;
+      case 'image':
+	this.loadImage(asset);
       }
     });
   }
@@ -29,6 +31,10 @@ class LoadState extends Phaser.State {
 
   loadFont(asset) {
     this.load.bitmapFont(asset.key, asset.textureURL, asset.atlasURL);
+  }
+
+  loadImage(asset) {
+    this.load.image(asset.key, asset.url);
   }
 }
 
