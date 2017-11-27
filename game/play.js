@@ -15,6 +15,10 @@ class PlayState extends Phaser.State {
   }
 
   create() {
+    this.time = this.game.time.create();
+    this.time.repeat(1 * Phaser.Timer.SECOND, 7200, this.updateTime, this);
+    this.time.start();
+    
     this.gui = new UI(this.game, 'ui', {x: 0, y: 125, width: 320, height: 60, tile: 16});
     
     this.soldier = new Hero(this, Soldier);
@@ -25,16 +29,26 @@ class PlayState extends Phaser.State {
     this.areas = {grasslands: new Area(this, Grasslands)};
     this.dungeon = new Dungeon(this, this.areas, Plains);
     
+    centerBitmapText(this.game, 140, 'pixel-fg', 'The Land and/or Lands of Jo\'eb', 32);
+    this.startText = centerBitmapText(this.game, 200, 'pixel-red', '[Press start]', 32);
+
     
   }
 
   update() {
     super.update();
     this.dungeon.update();
-
-    centerBitmapText(this.game, 140, 'pixel-fg', 'The Land and/or Lands of Jo\'eb', 32);
-    centerBitmapText(this.game, 200, 'pixel-red', '[Press start]', 32);
+    this.lastUpdate = this.time.time;
   }
+
+  updateTime() {
+    if (this.startText.visible) {
+      this.startText.visible = false;
+    } else {
+      this.startText.visible = true;
+    }
+  }
+  
 }
 
 export default PlayState;
