@@ -1,0 +1,13 @@
+export default {
+  name: 'purplePlanet',
+  spritesheet: 'tiles',
+  tiles: {
+    flat: 181,
+    left: 182,
+    middle: 183,
+    right: 184,
+    bg: 212,
+    nograss: 184,
+    transparent: 360
+  }
+};
