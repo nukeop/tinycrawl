@@ -2,10 +2,11 @@ class  Dungeon {
   constructor(state, areas, data) {
     this.state = state;
     this.name = data.name;
+    this.cursors = this.state.game.input.keyboard.createCursorKeys();
     this.areaType = areas[data.areaType];
     this.tilemap = null;
     this.backgroundImage = data.background;
-    this.background = this.state.game.add.tileSprite(0, 0, 320, 240, this.backgroundImage);
+    this.background = this.state.game.add.tileSprite(0, 0, 32 * 21, 240, this.backgroundImage);
     this.background.scale.x = this.background.scale.y = 2;
     this.createDungeonLayout();
     this.background.sendToBack();
@@ -38,10 +39,29 @@ class  Dungeon {
     this.layer.setScale(2, 2);
     this.layer.sendToBack();
     this.map.y = 20;
+
+    this.state.game.world.setBounds(0, 0, 32 * 21, 0);
+
   }
 
   update() {
-    
+    if (this.cursors.up.isDown)
+    {
+        this.state.game.camera.y -= 4;
+    }
+    else if (this.cursors.down.isDown)
+    {
+        this.state.game.camera.y += 4;
+    }
+
+    if (this.cursors.left.isDown)
+    {
+        this.state.game.camera.x -= 4;
+    }
+    else if (this.cursors.right.isDown)
+    {
+        this.state.game.camera.x += 4;
+    }
   }
 }
 

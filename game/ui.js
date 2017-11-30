@@ -43,6 +43,8 @@ class UI {
     this.gui.forEach(sprite => {
       sprite.scale.x = sprite.scale.y = 2;
     });
+
+    this.gui.fixedToCamera = true;
     
   }
 }

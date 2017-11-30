@@ -4,6 +4,7 @@ const centerBitmapText = (game, row, font, text, size) => {
   text.align = "center";
   text.updateText();
   text.x = game.canvas.width/2 - text.textWidth/2;
+  text.fixedToCamera = true;
   return text;
 };
 

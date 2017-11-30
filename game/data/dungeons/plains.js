@@ -1,5 +1,9 @@
 export default {
   name: 'plains',
-  areaType: 'mushroomLand',
+  areaType: 'grasslands',
+  descriptions: [
+    'A planet covered in vast, grassy plains',
+    'A thriving planet that is home to many simple lifeforms'
+  ],
   background: 'bg/sky'
 }
