@@ -5,7 +5,8 @@ import UI from './ui';
 
 import Soldier from './data/heroes/soldier';
 import Grasslands from './data/areas/grasslands';
-import PurplePlanet from './data//areas/purplePlanet';
+import PurplePlanet from './data/areas/purplePlanet';
+import MushroomLand from './data/areas/mushroomLand';
 import Plains from './data/dungeons/plains';
 
 import { centerBitmapText } from './textutils';
@@ -29,14 +30,13 @@ class PlayState extends Phaser.State {
 
     this.areas = {
       grasslands: new Area(this, Grasslands),
-      purplePlanet: new Area(this, PurplePlanet)
-		 };
+      purplePlanet: new Area(this, PurplePlanet),
+      mushroomLand: new Area(this, MushroomLand)
+    };
     this.dungeon = new Dungeon(this, this.areas, Plains);
     
     centerBitmapText(this.game, 140, 'pixel-fg', 'The Land and/or Lands of Jo\'eb', 32);
-    this.startText = centerBitmapText(this.game, 200, 'pixel-red', '[Press start]', 32);
-
-    
+    this.startText = centerBitmapText(this.game, 200, 'pixel-red', '[Press start]', 32);   
   }
 
   update() {

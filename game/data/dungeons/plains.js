@@ -1,5 +1,5 @@
 export default {
   name: 'plains',
-  areaType: 'purplePlanet',
+  areaType: 'mushroomLand',
   background: 'bg/sky'
 }
