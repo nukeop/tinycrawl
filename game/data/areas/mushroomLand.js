@@ -1,0 +1,13 @@
+export default {
+  name: 'mushroomLand',
+  spritesheet: 'tiles',
+  tiles: {
+    flat: 362,
+    left: 361,
+    middle: 362,
+    right: 364,
+    bg: 360,
+    nograss: 362,
+    transparent: 360
+  }
+};
