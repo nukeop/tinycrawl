@@ -20,6 +20,11 @@ export default [
     spacing: 2
   },
   {
+    type: 'image',
+    key: 'game_logo',
+    url: './resources/logo.png'
+  },
+  {
     type: 'font',
     key: 'pixel-fg',
     textureURL: './resources/Fonts/font-fg.png',

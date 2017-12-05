@@ -6,6 +6,8 @@ import BootState from './boot';
 import LoadState from './load';
 import PlayState from './play';
 
+import TitleScreenState from './states/titleScreen';
+
 class Game extends Phaser.Game {
   constructor() {
     super({
@@ -18,6 +20,7 @@ class Game extends Phaser.Game {
     this.state.add('Boot', BootState, false);
     this.state.add('Load', LoadState, false);
     this.state.add('Play', PlayState, false);
+    this.state.add('TitleScreen', TitleScreenState);
 
     this.state.start('Boot');
   }

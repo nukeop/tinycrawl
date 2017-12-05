@@ -38,30 +38,22 @@ class  Dungeon {
     this.layer = this.map.createLayer(0);
     this.layer.setScale(2, 2);
     this.layer.sendToBack();
-    this.map.y = 20;
-
-    this.state.game.world.setBounds(0, 0, 32 * 21, 0);
+    
+    this.state.game.world.setBounds(0, 0, 64 * 21, 0);
 
   }
 
   update() {
-    if (this.cursors.up.isDown)
-    {
-        this.state.game.camera.y -= 4;
-    }
-    else if (this.cursors.down.isDown)
-    {
-        this.state.game.camera.y += 4;
-    }
-
     if (this.cursors.left.isDown)
     {
-        this.state.game.camera.x -= 4;
+//        this.state.game.camera.x -= 4;
     }
     else if (this.cursors.right.isDown)
     {
-        this.state.game.camera.x += 4;
+      this.layer.anchor.x += 0.01;
     }
+
+    this.map.y = 25;
   }
 }
 
