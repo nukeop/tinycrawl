@@ -30,6 +30,11 @@
   textureUrl: ./resources/Fonts/font-red.png
   atlasUrl: ./resources/Fonts/font-red.fnt
 
+- type: font
+  key: pixel-yellow
+  textureUrl: ./resources/Fonts/font-yellow.png
+  atlasUrl: ./resources/Fonts/font-yellow.fnt
+
 - type: image
   key: bg/sky
   url: ./resources/backgrounds/sky.png
