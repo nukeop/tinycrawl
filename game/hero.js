@@ -2,7 +2,7 @@ class Hero {
   constructor(state, data) {
     this.state = state;
     this.name = data.name;
-    this.stats = data.stats;
+    this.stats = data.startingStats;
     this.spritesheet = data.spritesheet;
     
     this.portrait = this.state.add.sprite(state.game.width, state.game.height, this.spritesheet, data.portrait);

@@ -3,11 +3,11 @@ import Dungeon from './dungeon';
 import Hero from './hero';
 import UI from './ui';
 
-import Soldier from './data/heroes/soldier';
-import Grasslands from './data/areas/grasslands';
-import PurplePlanet from './data/areas/purplePlanet';
-import MushroomLand from './data/areas/mushroomLand';
-import Plains from './data/dungeons/plains';
+import Marine from './data/heroes/marine.yaml';
+import Grasslands from './data/areas/grasslands.yaml';
+import PurplePlanet from './data/areas/purplePlanet.yaml';
+import MushroomLand from './data/areas/mushroomLand.yaml';
+import Plains from './data/dungeons/plains.yaml';
 
 import { centerBitmapText } from './textutils';
 
@@ -23,10 +23,10 @@ class PlayState extends Phaser.State {
     
     this.gui = new UI(this.game, 'ui', {x: 0, y: 125, width: 320, height: 60, tile: 16});
     
-    this.soldier = new Hero(this, Soldier);
-    this.soldier.sprite.animations.play('default');
-    this.soldier.sprite.position.x = 15;
-    this.soldier.sprite.position.y = 42;
+    this.marine = new Hero(this, Marine);
+    this.marine.sprite.animations.play('walking');
+    this.marine.sprite.position.x = 15;
+    this.marine.sprite.position.y = 42;
 
     this.areas = {
       grasslands: new Area(this, Grasslands),

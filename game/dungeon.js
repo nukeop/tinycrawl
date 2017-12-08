@@ -1,9 +1,10 @@
-class  Dungeon {
+class Dungeon {
   constructor(state, areas, data) {
     this.state = state;
     this.name = data.name;
     this.cursors = this.state.game.input.keyboard.createCursorKeys();
     this.areaType = areas[data.areaType];
+    this.description = data.descriptions[Math.floor(Math.random() * data.descriptions.length)];
     this.tilemap = null;
     this.backgroundImage = data.background;
     this.background = this.state.game.add.tileSprite(0, 0, 32 * 21, 240, this.backgroundImage);
