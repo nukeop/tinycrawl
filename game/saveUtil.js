@@ -10,6 +10,9 @@ const checkIfSavedGameExists = () => {
   return !(localStorage.getItem('tinycrawl_save')===null);
 };
 
+const loadGame = data => {
+  
+};
 
 export {
   createSave,

@@ -1,4 +1,3 @@
-import UI from '../ui';
 import { centerBitmapText } from '../textutils';
 
 class TitleScreenState extends Phaser.State {
@@ -11,7 +10,6 @@ class TitleScreenState extends Phaser.State {
     this.time.repeat(1 * Phaser.Timer.SECOND, 7200, this.updateTimer, this);
     this.time.start();
 
-    this.gui = new UI(this.game, 'ui', {x: 0, y: 125, width: 320, height: 60, tile: 16});
     this.startText = centerBitmapText(this.game, 200, 'pixel-red', '[Click to play]', 32);   
     
     this.logo = this.add.image(0, 0, 'game_logo');
@@ -24,7 +22,7 @@ class TitleScreenState extends Phaser.State {
   }
 
   onTap(pointer, doubleTap) {
-    this.state.start('Play');
+    this.state.start('MainMenu');
   }
 
   updateTimer() {
