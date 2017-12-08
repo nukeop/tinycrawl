@@ -1,5 +1,8 @@
 import _ from 'lodash';
-import assets from './data/assets';
+
+import { createSave, checkIfSavedGameExists } from './saveUtil.js';
+import assets from './data/assets.yaml';
+
 
 class LoadState extends Phaser.State {
   init() {
@@ -22,6 +25,14 @@ class LoadState extends Phaser.State {
   }
 
   create() {
+    // Check if saved game exists, if yes - load, if not - create a new save
+    if (checkIfSavedGameExists()) {
+
+    } else {
+      localStorage.setItem('tinycrawl_save', JSON.stringify(createSave()));
+    }
+    
+    // Proceed to title screen
     this.state.start('TitleScreen');
   }
 
@@ -30,7 +41,7 @@ class LoadState extends Phaser.State {
   }
 
   loadFont(asset) {
-    this.load.bitmapFont(asset.key, asset.textureURL, asset.atlasURL);
+    this.load.bitmapFont(asset.key, asset.textureUrl, asset.atlasUrl);
   }
 
   loadImage(asset) {

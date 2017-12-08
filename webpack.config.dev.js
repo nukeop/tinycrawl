@@ -3,7 +3,8 @@ const path = require('path');
 
 const BUILD_DIR = path.resolve(__dirname, 'game');
 const APP_DIR = path.resolve(__dirname, 'game');
-const RESOURCES_DIR = path.resolve(__dirname, 'resources');
+const RESOURCES_DIR = path.resolve(__dirname, 'game', 'resources');
+const DATA_DIR = path.resolve(__dirname, 'game', 'data');
 
 module.exports = {
   entry: path.resolve(APP_DIR, 'index.js'),
@@ -28,6 +29,11 @@ module.exports = {
         test   : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
         loader : 'file-loader',
 	include: RESOURCES_DIR
+      },
+      {
+	test: /\.yaml$/,
+	loader: 'json-loader!yaml-loader',
+	include: DATA_DIR
       }
     ]
   },
