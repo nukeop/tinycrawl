@@ -15,7 +15,6 @@ body {
 }
 
 canvas {
-  padding: 2rem;
   background: #10151B;
   border-radius: 0.5rem;
 }
