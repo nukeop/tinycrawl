@@ -8,6 +8,7 @@ import PlayState from './play';
 
 import TitleScreenState from './states/titleScreen';
 import MainMenuState from './states/mainMenu';
+import CreditsState from './states/credits';
 
 class Game extends Phaser.Game {
   constructor() {
@@ -23,6 +24,7 @@ class Game extends Phaser.Game {
     this.state.add('Play', PlayState, false);
     this.state.add('TitleScreen', TitleScreenState);
     this.state.add('MainMenu', MainMenuState);
+    this.state.add('Credits', CreditsState);
 
     this.state.start('Boot');
   }
