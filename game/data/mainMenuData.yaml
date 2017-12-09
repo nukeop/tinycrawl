@@ -1,4 +1,7 @@
 entries:
-  - Start
-  - Credits
-  - Quit
+  - text: Start
+    goToState: Play
+  - text: Credits
+    goToState: Credits
+  - text: Quit
+    goToState: TitleScreen
