@@ -11,14 +11,24 @@ class MainMenuState extends Phaser.State {
   create() {
     this.margin = 32;
     this.entries = _.map(mainMenuData.entries, (entry, index) => {
-      return centerBitmapText(this.game, this.margin + index * 32, 'pixel-fg', entry, 32);
+      let text = centerBitmapText(this.game, this.margin + index * 32, 'pixel-fg', entry, 32);
+      text.inputEnabled = true;
+      text.hitArea = new Phaser.Rectangle(text.x, text.y, text.textWidth, text.textHeight);
+      text.events.onInputOver.add(() => {
+	text.font = 'pixel-yellow';
+      }, this);
+
+      text.events.onInputOut.add(() => {
+	text.font = 'pixel-fg';
+      }, this);
+      
+      return text;
     });
-    console.log(this.entries);
 
   }
 
   update() {
-
+    
   }
 }
 

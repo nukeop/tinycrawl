@@ -47,7 +47,7 @@ class Dungeon {
   update() {
     if (this.cursors.left.isDown)
     {
-//        this.state.game.camera.x -= 4;
+
     }
     else if (this.cursors.right.isDown)
     {
