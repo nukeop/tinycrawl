@@ -1,7 +1,8 @@
 import _ from 'lodash';
 import {
   centerBitmapText,
-  centerTextButton
+  centerTextButton,
+  drawButtonBorder
 } from '../textutils';
 import { checkIfSavedGameExists, loadGame } from '../saveUtil';
 
@@ -20,9 +21,13 @@ class SaveSummaryScreenState extends Phaser.State {
       if (heroes.length < 1) {
 	centerBitmapText(this.game, this.margin, 'pixel-fg', 'NO HEROES', 32);
 	let continueButton = centerTextButton(this.game, this.game.height - this.margin, 'pixel-fg', 'pixel-yellow', 'Continue', 32);
+
+	drawButtonBorder(continueButton, {x: 15, y: 10}, 0x98D1CE);
+	
 	continueButton.events.onInputUp.add(() => {
 	  console.log('Continue button clicked');
 	});
+
 	
       } else {
 	

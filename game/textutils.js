@@ -1,4 +1,4 @@
-const centerBitmapText = (game, row, font, text, size) => {
+export const centerBitmapText = (game, row, font, text, size) => {
   var bitmapText = game.add.bitmapText(0, row, font, text, size);
   bitmapText.maxWidth = game.width;
   bitmapText.align = "center";
@@ -9,7 +9,7 @@ const centerBitmapText = (game, row, font, text, size) => {
   return bitmapText;
 };
 
-const textButton = (game, x, y, font, hoverFont, text, size) => {
+export const textButton = (game, x, y, font, hoverFont, text, size) => {
   var button = game.add.bitmapText(x, y, font, text, size);
   button.maxWidth = game.width - x;
   button.align = "center";
@@ -26,18 +26,24 @@ const textButton = (game, x, y, font, hoverFont, text, size) => {
   });
 
   return button;
-}
+};
 
-const centerTextButton = (game, row, font, hoverFont, text, size) => {
+export const centerTextButton = (game, row, font, hoverFont, text, size) => {
   var button = textButton(game, game.world.centerX, row, font, hoverFont, text, size);
   button.maxWidth = game.width;
   button.anchor.x = 0.5;
   button.updateText();
   return button;
-}
+};
 
-module.exports = {
-  centerBitmapText,
-  textButton,
-  centerTextButton
+export const drawButtonBorder = (button, padding, borderColor) => {
+  
+  let graphics = button.game.add.graphics(button.x - (button.anchor.x * button.width) - padding.x, button.y - padding.y);
+  graphics.lineStyle(2, borderColor);
+  graphics.lineTo(button.width + 2*padding.x, 0);
+  graphics.lineTo(button.width + 2*padding.x, button.height + 2*padding.y);
+  graphics.lineTo(0, button.height + 2*padding.y);
+  graphics.lineTo(0, 0);
+  graphics.generateTexture();
+
 };
