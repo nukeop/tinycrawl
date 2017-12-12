@@ -1,6 +1,6 @@
 entries:
   - text: Start
-    goToState: Play
+    goToState: SaveSummaryScreen
   - text: Credits
     goToState: Credits
   - text: Quit

@@ -1,20 +1,26 @@
-const createSave = () => {
-  return {
-    version: '0.0.1',
-    heroes: [],
-    dungeons: []
-  };
+import blankSave from './data/blankSave.yaml';
+
+const createNewSave = () => {
+  return blankSave;
 };
+
+const loadGame = () => {
+  return JSON.parse(localStorage.getItem('tinycrawl_save'));
+};
+
+const saveGame = data => {
+  localStorage.setItem('tinycrawl_save', JSON.stringify(data));
+}
 
 const checkIfSavedGameExists = () => {
-  return !(localStorage.getItem('tinycrawl_save')===null);
+  return !(loadGame()===null);
 };
 
-const loadGame = data => {
-  
-};
+
 
 export {
-  createSave,
+  createNewSave,
+  loadGame,
+  saveGame,
   checkIfSavedGameExists
 };

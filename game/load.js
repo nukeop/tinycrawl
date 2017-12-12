@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import { createSave, checkIfSavedGameExists } from './saveUtil.js';
+import { createNewSave, checkIfSavedGameExists, saveGame } from './saveUtil.js';
 import assets from './data/assets.yaml';
 
 
@@ -29,7 +29,8 @@ class LoadState extends Phaser.State {
     if (checkIfSavedGameExists()) {
 
     } else {
-      localStorage.setItem('tinycrawl_save', JSON.stringify(createSave()));
+      console.log('No save file detected, creating a new one');
+      saveGame(createNewSave());
     }
     
     // Proceed to title screen
