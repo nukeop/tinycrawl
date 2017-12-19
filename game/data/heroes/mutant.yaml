@@ -1,0 +1,12 @@
+name: mutant
+startingStats:
+  maxHp: 5
+  attack: 0
+  defense: 1
+spritesheet: tiles
+portrait: 175
+animations:
+  - name: walking
+    frames: [ 58, 59 ]
+    fps: 10
+    loop: true

@@ -1,7 +1,10 @@
 import _ from 'lodash';
 
+import HeroClass from './heroClass';
+
 import { createNewSave, checkIfSavedGameExists, saveGame } from './saveUtil.js';
 import assets from './data/assets.yaml';
+import gameData from './data/gameData.yaml';
 
 
 class LoadState extends Phaser.State {
@@ -10,18 +13,9 @@ class LoadState extends Phaser.State {
   }
 
   preload() {
-    _.forEach(assets, asset => {
-      switch(asset.type) {
-      case 'spritesheet':
-	this.loadSpritesheet(asset);
-	break;
-      case 'font':
-	this.loadFont(asset);
-	break;
-      case 'image':
-	this.loadImage(asset);
-      }
-    });
+    this.game.gameData = [];
+    this.preloadAssets(assets);
+    this.preloadGameData(gameData);
   }
 
   create() {
@@ -35,6 +29,39 @@ class LoadState extends Phaser.State {
     
     // Proceed to title screen
     this.state.start('TitleScreen');
+  }
+
+  preloadGameData(gameDataObj) {
+    _.forEach(gameDataObj, gameobj => {
+      switch(gameobj.type) {
+      case 'heroClass':
+	this.loadHeroClass(gameobj);
+	break;
+      }
+    });
+  }
+
+  loadHeroClass(gameobj) {
+    var req = require.context("json-loader!yaml-loader!./data", true, /yaml$/);
+    var data = req(gameobj.path);
+    var heroClass = new HeroClass(this.game, data);
+    this.game.gameData.push(heroClass);
+  }
+  
+  preloadAssets(assetsObj) {
+    _.forEach(assetsObj, asset => {
+      switch(asset.type) {
+      case 'spritesheet':
+	this.loadSpritesheet(asset);
+	break;
+      case 'font':
+	this.loadFont(asset);
+	break;
+      case 'image':
+	this.loadImage(asset);
+	break;
+      }
+    });
   }
 
   loadSpritesheet(asset) {

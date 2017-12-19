@@ -1,0 +1,5 @@
+- type: heroClass
+  path: ./heroes/marine.yaml
+
+- type: heroClass
+  path: ./heroes/mutant.yaml
