@@ -3,3 +3,15 @@
 
 - type: heroClass
   path: ./heroes/mutant.yaml
+
+- type: area
+  path: ./areas/grasslands.yaml
+
+- type: area
+  path: ./areas/mushroomLand.yaml
+
+- type: area
+  path: ./areas/purplePlanet.yaml
+
+- type: dungeonType
+  path: ./dungeons/plains.yaml

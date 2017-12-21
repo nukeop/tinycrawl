@@ -1,5 +1,7 @@
 import _ from 'lodash';
 
+import Area from './area';
+import DungeonType from './dungeonType';
 import HeroClass from './heroClass';
 
 import { createNewSave, checkIfSavedGameExists, saveGame } from './saveUtil.js';
@@ -10,10 +12,14 @@ import gameData from './data/gameData.yaml';
 class LoadState extends Phaser.State {
   init() {
     console.log('Load state started');
+    this.req = require.context("json-loader!yaml-loader!./data", true, /yaml$/);
   }
 
   preload() {
-    this.game.gameData = [];
+    this.game.gameData = {};
+    this.game.gameData.heroClasses = [];
+    this.game.gameData.areas = [];
+    this.game.gameData.dungeonTypes = [];
     this.preloadAssets(assets);
     this.preloadGameData(gameData);
   }
@@ -37,15 +43,32 @@ class LoadState extends Phaser.State {
       case 'heroClass':
 	this.loadHeroClass(gameobj);
 	break;
+      case 'area':
+	this.loadArea(gameobj);
+	break;
+      case 'dungeonType':
+	this.loadDungeonType(gameobj);
+	break;
       }
     });
   }
 
+  loadDungeonType(gameobj) {
+    var data = eval(this.req(gameobj.path));
+    var dungeonType = new DungeonType(this.game, data);
+    this.game.gameData.dungeonTypes.push(dungeonType);
+  }
+
   loadHeroClass(gameobj) {
-    var req = require.context("json-loader!yaml-loader!./data", true, /yaml$/);
-    var data = req(gameobj.path);
+    var data = eval(this.req(gameobj.path));
     var heroClass = new HeroClass(this.game, data);
-    this.game.gameData.push(heroClass);
+    this.game.gameData.heroClasses.push(heroClass);
+  }
+
+  loadArea(gameobj) {
+    var data = eval(this.req(gameobj.path));
+    var area = new Area(this.game, data);
+    this.game.gameData.areas.push(area);
   }
   
   preloadAssets(assetsObj) {

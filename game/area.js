@@ -1,11 +1,8 @@
-import _ from 'lodash';
-
 class Area {
-  constructor(state, data) {
-    this.state = state;
+  constructor(game, data) {
+    this.game = game;
     this.name = data.name;
     this.spritesheet = data.spritesheet;
-    
     this.tiles = data.tiles;
   }
 }
