@@ -2,13 +2,10 @@ import PIXI from 'expose-loader?PIXI!phaser-ce/build/custom/pixi.js';
 import p2 from 'expose-loader?p2!phaser-ce/build/custom/p2.js';
 import Phaser from 'expose-loader?Phaser!phaser-ce/build/custom/phaser-split.js';
 
-import BootState from './boot';
-import LoadState from './load';
+import path from 'path';
+import _ from 'lodash';
 
-import TitleScreenState from './states/titleScreen';
-import MainMenuState from './states/mainMenu';
-import CreditsState from './states/credits';
-import SaveSummaryScreenState from './states/saveSummaryScreen';
+import States from './data/states.yaml';
 
 class Game extends Phaser.Game {
   constructor() {
@@ -19,14 +16,15 @@ class Game extends Phaser.Game {
       antialias: false
     });
 
-    this.state.add('Boot', BootState, false);
-    this.state.add('Load', LoadState, false);
-    this.state.add('TitleScreen', TitleScreenState);
-    this.state.add('MainMenu', MainMenuState);
-    this.state.add('Credits', CreditsState);
-    this.state.add('SaveSummaryScreen', SaveSummaryScreenState);
+    console.log("Loading states...");
+    let context = require.context("./states", true, /\.jsx?/);
+    _.forEach(States.states, state => {
+      console.log(`Loading ${state.name}...`);
+      let module = context(state.path).default;
+      this.state.add(state.name, module);
+    });
 
-    this.state.start('Boot');
+    this.state.start(States.start); 
   }
   
 }

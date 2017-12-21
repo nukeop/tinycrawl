@@ -1,0 +1,20 @@
+states:
+  - name: 'Boot'
+    path: ./boot.js
+
+  - name: 'Load'
+    path: ./load.js
+
+  - name: 'TitleScreen'
+    path: ./titleScreen.js
+
+  - name: 'MainMenu'
+    path: ./mainMenu.js
+
+  - name: 'Credits'
+    path: ./credits.js
+
+  - name: 'SaveSummaryScreen'
+    path: ./saveSummaryScreen.js
+    
+start: 'Boot'

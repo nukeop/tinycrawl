@@ -12,7 +12,7 @@ import gameData from '../data/gameData.yaml';
 class LoadState extends Phaser.State {
   init() {
     console.log('Load state started');
-    this.req = require.context("json-loader!yaml-loader!./data", true, /yaml$/);
+    this.req = require.context("json-loader!yaml-loader!../data", true, /yaml$/);
   }
 
   preload() {
