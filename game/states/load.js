@@ -34,7 +34,7 @@ class LoadState extends Phaser.State {
     }
     
     // Proceed to title screen
-    this.state.start('TitleScreen');
+    this.state.start('HeroCreationScreen');
   }
 
   preloadGameData(gameDataObj) {

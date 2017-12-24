@@ -1,0 +1,12 @@
+name: hacker
+startingStats:
+  maxHp: 2
+  attack: 1
+  defense: 1
+spritesheet: tiles
+portrait: 176
+animations:
+  - name: walking
+    frames: [ 88, 89 ]
+    fps: 10
+    loop: true

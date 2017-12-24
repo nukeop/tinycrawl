@@ -25,7 +25,7 @@ class SaveSummaryScreenState extends Phaser.State {
 	drawButtonBorder(continueButton, {x: 15, y: 10}, 0x98D1CE);
 	
 	continueButton.events.onInputUp.add(() => {
-	  console.log('Continue button clicked');
+	  this.state.start('HeroCreationScreen');
 	});
 
 	

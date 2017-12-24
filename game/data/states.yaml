@@ -16,5 +16,8 @@ states:
 
   - name: 'SaveSummaryScreen'
     path: ./saveSummaryScreen.js
+
+  - name: 'HeroCreationScreen'
+    path: ./heroCreationScreen.js
     
 start: 'Boot'

@@ -4,6 +4,9 @@
 - type: heroClass
   path: ./heroes/mutant.yaml
 
+- type: heroClass
+  path: ./heroes/hacker.yaml
+  
 - type: area
   path: ./areas/grasslands.yaml
 
