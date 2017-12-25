@@ -20,6 +20,7 @@ class LoadState extends Phaser.State {
     this.game.gameData.heroClasses = [];
     this.game.gameData.areas = [];
     this.game.gameData.dungeonTypes = [];
+    this.game.gameData.textStyles = {};
     this.preloadAssets(assets);
     this.preloadGameData(gameData);
   }
@@ -49,6 +50,9 @@ class LoadState extends Phaser.State {
       case 'dungeonType':
 	this.loadDungeonType(gameobj);
 	break;
+      case 'textStyle':
+	this.loadTextStyle(gameobj);
+	break;
       }
     });
   }
@@ -69,6 +73,11 @@ class LoadState extends Phaser.State {
     var data = eval(this.req(gameobj.path));
     var area = new Area(this.game, data);
     this.game.gameData.areas.push(area);
+  }
+
+  loadTextStyle(gameobj) {
+    var style = gameobj.style;
+    this.game.gameData.textStyles[`${gameobj.key}`] = style;
   }
   
   preloadAssets(assetsObj) {

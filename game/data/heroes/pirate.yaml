@@ -1,12 +1,12 @@
-name: mutant
+name: pirate
 startingStats:
-  maxHp: 5
-  attack: 0
+  maxHp: 3
+  attack: 2
   defense: 1
 spritesheet: tiles
-portrait: 170
+portrait: 172
 animations:
   - name: walking
-    frames: [ 58, 59 ]
+    frames: [ 118, 119 ]
     fps: 10
     loop: true

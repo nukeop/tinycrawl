@@ -6,6 +6,9 @@
 
 - type: heroClass
   path: ./heroes/hacker.yaml
+
+- type: heroClass
+  path: ./heroes/pirate.yaml
   
 - type: area
   path: ./areas/grasslands.yaml
@@ -18,3 +21,10 @@
 
 - type: dungeonType
   path: ./dungeons/plains.yaml
+
+- type: textStyle
+  key: default
+  style:
+    font: 32px Pixel
+    fill: '#98D1CE'
+    tabs: 128

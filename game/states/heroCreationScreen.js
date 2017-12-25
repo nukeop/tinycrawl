@@ -18,11 +18,11 @@ class HeroCreationScreenState extends Phaser.State {
   }
 
   drawUI(margin){
-    let arrowLeft = this.add.sprite(this.game.width - this.margin * 5.5, this.margin, 'ui', 806);
+    let arrowLeft = this.add.sprite(this.game.width - margin * 5.5, margin, 'ui', 806);
     arrowLeft.scale.x = arrowLeft.scale.y = 2;
     arrowLeft.inputEnabled = true;
     
-    let arrowRight = this.add.sprite(this.game.width - this.margin*1.5, this.margin, 'ui', 807);
+    let arrowRight = this.add.sprite(this.game.width - margin * 1.5, margin, 'ui', 807);
     arrowRight.scale.x = arrowRight.scale.y = 2;
     arrowRight.inputEnabled = true;
 
@@ -49,8 +49,12 @@ class HeroCreationScreenState extends Phaser.State {
   }
 
   drawText(margin) {
-    let className = this.game.add.bitmapText(this.game.width - this.margin * 3, this.margin * 1.25, 'pixel-fg', this.currentHero.heroClass.name, 32);
+    let className = this.game.add.text(this.game.width - margin * 2, margin * 1.25, this.currentHero.heroClass.name, this.game.gameData.textStyles.default);
     className.anchor.x = 0.5;
+
+    let hp = this.game.add.text(margin, this.game.height - margin * 3, 'HP\t' + this.currentHero.heroClass.startingStats.maxHp, this.game.gameData.textStyles.default);
+    let atk = this.game.add.text(margin, this.game.height - margin * 2, 'ATK\t' + this.currentHero.heroClass.startingStats.attack, this.game.gameData.textStyles.default);
+    let def = this.game.add.text(margin, this.game.height - margin, 'DEF\t' + this.currentHero.heroClass.startingStats.defense, this.game.gameData.textStyles.default);
 
     this.updatable.push(className);
   }

@@ -4,7 +4,7 @@ startingStats:
   attack: 1
   defense: 1
 spritesheet: tiles
-portrait: 176
+portrait: 171
 animations:
   - name: walking
     frames: [ 88, 89 ]
