@@ -1,3 +1,9 @@
+export const centerText = (game, row, text, style) => {
+  var text = game.add.text(this.game.width/2, row, text, style);
+  text.anchor.x = 0.5;
+  return text;
+};
+
 export const centerBitmapText = (game, row, font, text, size) => {
   var bitmapText = game.add.bitmapText(0, row, font, text, size);
   bitmapText.maxWidth = game.width;

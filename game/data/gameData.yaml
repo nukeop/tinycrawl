@@ -28,3 +28,15 @@
     font: 32px Pixel
     fill: '#98D1CE'
     tabs: 128
+
+- type: textStyle
+  key: defaultNoTabs
+  style:
+    font: 32px Pixel
+    fill: '#98D1CE'
+
+- type: textStyle
+  key: redNoTabs
+  style:
+    font: 32px Pixel
+    fill: '#FF2424'

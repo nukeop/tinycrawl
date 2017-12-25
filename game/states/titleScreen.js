@@ -1,4 +1,4 @@
-import { centerBitmapText } from '../textutils';
+import { centerText } from '../textutils';
 
 class TitleScreenState extends Phaser.State {
   init() {
@@ -10,7 +10,7 @@ class TitleScreenState extends Phaser.State {
     this.time.repeat(1 * Phaser.Timer.SECOND, 7200, this.updateTimer, this);
     this.time.start();
 
-    this.startText = centerBitmapText(this.game, 200, 'pixel-red', '[Click to play]', 32);   
+    this.startText = centerText(this.game, 200, '[Click to play]', this.game.gameData.textStyles.redNoTabs);
     
     this.logo = this.add.image(0, 0, 'game_logo');
     this.logo.scale.x = this.logo.scale.y = 2;
@@ -26,11 +26,7 @@ class TitleScreenState extends Phaser.State {
   }
 
   updateTimer() {
-     if (this.startText.visible) {
-      this.startText.visible = false;
-    } else {
-      this.startText.visible = true;
-    }
+    this.startText.visible = !this.startText.visible;
   }
 
   

@@ -57,6 +57,9 @@ class HeroCreationScreenState extends Phaser.State {
     let def = this.game.add.text(margin, this.game.height - margin, 'DEF\t' + this.currentHero.heroClass.startingStats.defense, this.game.gameData.textStyles.default);
 
     this.updatable.push(className);
+    this.updatable.push(hp);
+    this.updatable.push(atk);
+    this.updatable.push(def);
   }
 
   drawSprites(margin) {

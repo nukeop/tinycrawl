@@ -1,8 +1,8 @@
 name: pirate
 startingStats:
-  maxHp: 3
+  maxHp: 2
   attack: 2
-  defense: 1
+  defense: 3
 spritesheet: tiles
 portrait: 172
 animations:
