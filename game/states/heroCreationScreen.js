@@ -38,6 +38,23 @@ class HeroCreationScreenState extends Phaser.State {
     });
 
     let create = textButton(this.game, this.game.width - margin * 3.5, 200, 'Continue', this.game.gameData.textStyles.default, this.game.gameData.textStyles.yellow);
+    create.inputEnabled = true;
+
+    create.events.onInputUp.add(() => {
+      this.state.start(
+	'TextInput',
+	true,
+	false,
+	'Enter character name:',
+	'SaveSummaryScreen',
+	(input, params) => {
+	  console.log(input, params);
+	},
+	{
+	  heroClass: this.currentHero.heroClass
+	}
+      );
+    });
   }
 
   updateSelection() {

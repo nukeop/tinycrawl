@@ -19,5 +19,8 @@ states:
 
   - name: 'HeroCreationScreen'
     path: ./heroCreationScreen.js
+
+  - name: 'TextInput'
+    path: ./textInputState.js
     
 start: 'Boot'
