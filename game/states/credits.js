@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { centerBitmapText } from '../textutils';
+import { centerText } from '../textutils';
 
 import creditsData from '../data/credits.yaml';
 
@@ -12,13 +12,13 @@ class CreditsState extends Phaser.State {
     this.margin = this.game.height;
     let lines = 0;
     this.entries = _.map(creditsData, (entry, index) => {
-      let titleText = centerBitmapText(this.game, this.margin + lines * 32, 'pixel-fg', entry.title, 32);
+      let titleText = centerText(this.game, this.margin + lines * 32, entry.title, this.game.gameData.textStyles.defaultNoTabs);
       titleText.fixedToCamera = false;
       titleText.startingY = titleText.y;
       lines++;
 
       let creditEntries = _.map(entry.entries, name => {
-	let nameText = centerBitmapText(this.game, this.margin + lines * 32, 'pixel-fg', name, 32);
+	let nameText = centerText(this.game, this.margin + lines * 32, name, this.game.gameData.textStyles.defaultNoTabs);
 	nameText.fixedToCamera = false;
 	nameText.startingY = nameText.y;
 	lines++;

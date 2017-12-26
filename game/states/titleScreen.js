@@ -10,7 +10,7 @@ class TitleScreenState extends Phaser.State {
     this.time.repeat(1 * Phaser.Timer.SECOND, 7200, this.updateTimer, this);
     this.time.start();
 
-    this.startText = centerText(this.game, 200, '[Click to play]', this.game.gameData.textStyles.redNoTabs);
+    this.startText = centerText(this.game, 200, '[Click to play]', this.game.gameData.textStyles.red);
     
     this.logo = this.add.image(0, 0, 'game_logo');
     this.logo.scale.x = this.logo.scale.y = 2;

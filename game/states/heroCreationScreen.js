@@ -1,4 +1,5 @@
 import { checkIfSavedGameExists, loadGame } from '../saveUtil';
+import { textButton } from '../textutils';
 
 class HeroCreationScreenState extends Phaser.State {
   init() {
@@ -35,6 +36,8 @@ class HeroCreationScreenState extends Phaser.State {
       this.classChoice--;
       this.updateSelection();
     });
+
+    let create = textButton(this.game, this.game.width/2, 180, 'test button', this.game.gameData.textStyles.default, this.game.gameData.textStyles.yellow);
   }
 
   updateSelection() {
@@ -52,9 +55,9 @@ class HeroCreationScreenState extends Phaser.State {
     let className = this.game.add.text(this.game.width - margin * 2, margin * 1.25, this.currentHero.heroClass.name, this.game.gameData.textStyles.default);
     className.anchor.x = 0.5;
 
-    let hp = this.game.add.text(margin, this.game.height - margin * 3, 'HP\t' + this.currentHero.heroClass.startingStats.maxHp, this.game.gameData.textStyles.default);
-    let atk = this.game.add.text(margin, this.game.height - margin * 2, 'ATK\t' + this.currentHero.heroClass.startingStats.attack, this.game.gameData.textStyles.default);
-    let def = this.game.add.text(margin, this.game.height - margin, 'DEF\t' + this.currentHero.heroClass.startingStats.defense, this.game.gameData.textStyles.default);
+    let hp = this.game.add.text(margin, margin * 3, 'HP\t' + this.currentHero.heroClass.startingStats.maxHp, this.game.gameData.textStyles.default);
+    let atk = this.game.add.text(margin, margin * 4, 'ATK\t' + this.currentHero.heroClass.startingStats.attack, this.game.gameData.textStyles.default);
+    let def = this.game.add.text(margin, margin * 5, 'DEF\t' + this.currentHero.heroClass.startingStats.defense, this.game.gameData.textStyles.default);
 
     this.updatable.push(className);
     this.updatable.push(hp);

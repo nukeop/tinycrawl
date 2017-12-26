@@ -36,7 +36,13 @@
     fill: '#98D1CE'
 
 - type: textStyle
-  key: redNoTabs
+  key: red
   style:
     font: 32px Pixel
     fill: '#FF2424'
+
+- type: textStyle
+  key: yellow
+  style:
+    font: 32px Pixel
+    fill: '#edb54b'

@@ -1,7 +1,6 @@
 import _ from 'lodash';
 import {
-  centerBitmapText,
-  centerTextButton
+  centerTextButton  
 } from '../textutils';
 
 import mainMenuData from '../data/mainMenuData.yaml';
@@ -14,7 +13,7 @@ class MainMenuState extends Phaser.State {
   create() {
     this.margin = 32;
     this.entries = _.map(mainMenuData.entries, (entry, index) => {
-      let button = centerTextButton(this.game, this.margin + index * 32, 'pixel-fg', 'pixel-yellow', entry.text, 32);
+      let button = centerTextButton(this.game, this.margin + index * 32, entry.text, this.game.gameData.textStyles.defaultNoTabs, this.game.gameData.textStyles.yellow);
 
       button.events.onInputUp.add(() => {
 	this.state.start(entry.goToState);

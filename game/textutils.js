@@ -1,7 +1,31 @@
 export const centerText = (game, row, text, style) => {
-  var text = game.add.text(this.game.width/2, row, text, style);
-  text.anchor.x = 0.5;
-  return text;
+  var textObj = game.add.text(game.width/2, row, text, style);
+  textObj.anchor.x = 0.5;
+  return textObj;
+};
+
+export const textButton = (game, x, y, text, style, hoverStyle) => {
+  var button = game.add.text(x, y, text, style);
+  button.fixedToCamera = true;
+  button.inputEnabled = true;
+
+  button.events.onInputOver.add(() => {
+    button.setStyle(hoverStyle);
+  });
+
+  button.events.onInputOut.add(() => {
+    button.setStyle(style);
+  });
+  
+  return button;
+};
+
+export const centerTextButton = (game, row, text, style, hoverStyle) => {
+  let button = textButton(game, game.width/2, row, text, style, hoverStyle);
+  button.anchor.x = 0.5;
+
+  return button;
+  
 };
 
 export const centerBitmapText = (game, row, font, text, size) => {
@@ -15,7 +39,7 @@ export const centerBitmapText = (game, row, font, text, size) => {
   return bitmapText;
 };
 
-export const textButton = (game, x, y, font, hoverFont, text, size) => {
+export const bitmapTextButton = (game, x, y, font, hoverFont, text, size) => {
   var button = game.add.bitmapText(x, y, font, text, size);
   button.maxWidth = game.width - x;
   button.align = "center";
@@ -34,7 +58,7 @@ export const textButton = (game, x, y, font, hoverFont, text, size) => {
   return button;
 };
 
-export const centerTextButton = (game, row, font, hoverFont, text, size) => {
+export const centerBitmapTextButton = (game, row, font, hoverFont, text, size) => {
   var button = textButton(game, game.world.centerX, row, font, hoverFont, text, size);
   button.maxWidth = game.width;
   button.anchor.x = 0.5;
