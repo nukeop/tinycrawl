@@ -37,7 +37,7 @@ class HeroCreationScreenState extends Phaser.State {
       this.updateSelection();
     });
 
-    let create = textButton(this.game, this.game.width/2, 180, 'test button', this.game.gameData.textStyles.default, this.game.gameData.textStyles.yellow);
+    let create = textButton(this.game, this.game.width - margin * 3.5, 200, 'Continue', this.game.gameData.textStyles.default, this.game.gameData.textStyles.yellow);
   }
 
   updateSelection() {

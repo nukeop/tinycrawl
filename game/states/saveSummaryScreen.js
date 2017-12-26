@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import {
-  centerBitmapText,
+  centerText,
   centerTextButton,
   drawButtonBorder
 } from '../textutils';
@@ -19,10 +19,10 @@ class SaveSummaryScreenState extends Phaser.State {
       let heroes = savedGame.heroes;
 
       if (heroes.length < 1) {
-	centerBitmapText(this.game, this.margin, 'pixel-fg', 'NO HEROES', 32);
-	let continueButton = centerTextButton(this.game, this.game.height - this.margin, 'pixel-fg', 'pixel-yellow', 'Continue', 32);
+	centerText(this.game, this.margin, 'NO HEROES', this.game.gameData.textStyles.defaultNoTabs);
+	let continueButton = centerTextButton(this.game, this.game.height - this.margin, 'Continue', this.game.gameData.textStyles.defaultNoTabs, this.game.gameData.textStyles.yellow);
 
-	drawButtonBorder(continueButton, {x: 15, y: 10}, 0x98D1CE);
+	drawButtonBorder(continueButton, {x: 15, y: 2}, 0x98D1CE);
 	
 	continueButton.events.onInputUp.add(() => {
 	  this.state.start('HeroCreationScreen');
