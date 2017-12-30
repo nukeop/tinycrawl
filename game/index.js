@@ -2,6 +2,8 @@ import PIXI from 'expose-loader?PIXI!phaser-ce/build/custom/pixi.js';
 import p2 from 'expose-loader?p2!phaser-ce/build/custom/p2.js';
 import Phaser from 'expose-loader?Phaser!phaser-ce/build/custom/phaser-split.js';
 
+import PhaserInput from 'exports-loader?PhaserInput!@orange-games/phaser-input/build/phaser-input.js';
+
 import path from 'path';
 import _ from 'lodash';
 
@@ -15,7 +17,7 @@ class Game extends Phaser.Game {
       renderer: Phaser.AUTO,
       antialias: false
     });
-
+    
     console.log("Loading states...");
     let context = require.context("./states", true, /\.jsx?/);
     _.forEach(States.states, state => {
